@@ -1,16 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const AboutMeWrapper = styled.div`
-  background: #fffff1;
-  color: black;
+import profilePic from './assets/profile-picture.png';
+
+const ProfilePic = styled.img`
+  width: 400px;
+  height: 400px;
+  margin-bottom: 15px;
+`;
+
+const Description = styled.div`
+  text-align: left;
+  font-size: 24px;
+  max-width: 500px;
+  font-weight: regular;
+  margin-bottom: 25px;
 `;
 
 const AboutMe = () => {
   return (
-    <AboutMeWrapper>
-      <div>hello world</div>
-    </AboutMeWrapper>
+    <>
+      <ProfilePic src={profilePic} alt='profile picture' />
+      <h1>Hi ! 👋</h1>
+      <Description>
+        My name is {' '}
+        <span style={{ color: '#000080', fontWeight: 'bold' }}>Jerry Iu</span>,
+        a software / web developer based in Toronto, Canada. I'm currently
+        finishing my last year of school at Western University for my Computer
+        Science degree.
+      </Description>
+    </>
   );
 };
 
