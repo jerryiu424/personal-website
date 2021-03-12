@@ -146,7 +146,7 @@ const LandingPage = () => {
           <Keycap keyCap={linkedinKey} />
         </a>
         <a
-          href='https://drive.google.com/file/d/1GPnDTcHI9T6-NXWZTh9nfsHbgS4IZuxH/view?usp=sharing'
+          href='https://drive.google.com/file/d/1Tj5OhFvvliFhfmcmij3X_wXwmmKYvQux/view?usp=sharing'
           target='_BLANK'
           rel='noreferrer'>
           <Keycap keyCap={resumeKey} />
