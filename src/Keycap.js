@@ -21,10 +21,13 @@ const KeyCap = styled.img`
   &:hover {
     margin-top: 10px;
   }
-
   @media (max-width: 1300px) {
     width: 100px;
     height: 90px;
+  }
+  @media (max-width: 420px) {
+    width: 60px;
+    height: 50px;
   }
 `;
 
@@ -41,6 +44,12 @@ const KeySwitch = styled.img`
     height: 80px;
     margin-top: 35px;
     margin-left: 20px;
+  }
+  @media (max-width: 420px) {
+    width: 40px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 15px;
   }
 `;
 

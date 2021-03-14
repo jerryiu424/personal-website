@@ -3,15 +3,19 @@ import styled from 'styled-components';
 
 import Tag from './Tag';
 
+const ProjectWrapper = styled.div`
+  width: 90%;
+  margin-top: 50px;
+  max-width: 1440px;
+`;
+
 const Headings = styled.div`
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
-`;
-
-const ProjectWrapper = styled.div`
-  width: 90%;
-  margin-top: 50px;
+  @media (max-width: 420px) {
+    font-size: 30px;
+  }
 `;
 
 const ProjectItemWrapper = styled.div`
@@ -48,24 +52,32 @@ const ProjectItem = styled.div`
 const ProjectTitle = styled.div`
   font-size: 30px;
   font-weight: 500;
+  @media (max-width: 420px) {
+    font-size: 20px;
+  }
 `;
 
 const ProjectDescription = styled.div`
   font-size: 18px;
   font-weight: 300;
   padding: 10px 0;
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `;
 
 const TagWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
 
   & > * {
-    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
   }
 
-  & > *:nth-child(1) {
-    margin-left: 0px;
+  & > *:nth-last-child() {
+    margin-right: 0px;
   }
 `;
 
@@ -106,7 +118,7 @@ const Projects = () => {
             <span>Built with:</span>
             <TagWrapper>
               <Tag name='JavaScript' color='#fdda3c' />
-              <Tag name='react' color='#00ffff' />
+              <Tag name='React' color='#00ffff' />
             </TagWrapper>
           </div>
           <a
@@ -125,7 +137,7 @@ const Projects = () => {
             <span>Built with:</span>
             <TagWrapper>
               <Tag name='JavaScript' color='#fdda3c' />
-              <Tag name='react' color='#00ffff' />
+              <Tag name='React' color='#00ffff' />
             </TagWrapper>
           </div>
           <a

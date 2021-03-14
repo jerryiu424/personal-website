@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-scroll';
 
 import background from './assets/background.png';
 import Keycap from './Keycap';
@@ -10,7 +9,6 @@ import rKey from './assets/kecaps/R.png';
 import yKey from './assets/kecaps/Y.png';
 import iKey from './assets/kecaps/I.png';
 import uKey from './assets/kecaps/U.png';
-import blankKey from './assets/kecaps/blank.png';
 import emailKey from './assets/kecaps/email.png';
 import githubKey from './assets/kecaps/github.png';
 import linkedinKey from './assets/kecaps/linkedin.png';
@@ -26,6 +24,16 @@ const LandingPageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media (max-width: 1280px) {
+    & > * {
+      max-width: 700px;
+    }
+  }
+  @media (max-width: 420px) {
+    & > * {
+      max-width: 500px;
+    }
+  }
 `;
 
 const KeycapWrapper = styled.div`
@@ -35,6 +43,45 @@ const KeycapWrapper = styled.div`
   width: 60%;
   height: 100%;
   max-height: 150px;
+  & > * {
+    height: 100%;
+    display: flex;
+  }
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+    max-height: 170px;
+    margin-bottom: 15px;
+    & > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 70px;
+    }
+  }
+`;
+
+const FirstNameWrapper = styled.div`
+  width: 70%;
+  margin-right: 85px;
+  @media (max-width: 420px) {
+    width: 80%;
+    margin: 0;
+  }
+`;
+
+const LastNameWrapper = styled.div`
+  width: 30%;
+  @media (max-width: 420px) {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    & > * {
+      width: 20%;
+    }
+  }
 `;
 
 const SocialKeyWrapper = styled.div`
@@ -46,6 +93,9 @@ const SocialKeyWrapper = styled.div`
   & > * {
     width: 100%;
     max-width: 111px;
+  }
+  @media (max-width: 420px) {
+    max-height: 70px;
   }
 `;
 
@@ -70,9 +120,10 @@ const arrowAnimation = keyframes`
 const ArrowsWrapper = styled.div`
   position: absolute;
   bottom: 7%;
-  width: 100px;
+  width: 100%;
   height: 20%;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -113,20 +164,29 @@ const Arrow = styled.div`
     width: 50%;
     transform: skewY(-30deg);
   }
+
+  @media (max-width: 420px) {
+    width: calc(1.9rem * 3.5);
+    height: calc(0.9rem * 0.8);
+  }
 `;
 
 const LandingPage = () => {
   return (
     <LandingPageWrapper backgroundImage={background}>
       <KeycapWrapper>
-        <Keycap keyCap={jKey} />
-        <Keycap keyCap={eKey} />
-        <Keycap keyCap={rKey} />
-        <Keycap keyCap={rKey} />
-        <Keycap keyCap={yKey} />
-        <Keycap keyCap={blankKey} blank={true} />
-        <Keycap keyCap={iKey} />
-        <Keycap keyCap={uKey} />
+        <FirstNameWrapper>
+          <Keycap keyCap={jKey} />
+          <Keycap keyCap={eKey} />
+          <Keycap keyCap={rKey} />
+          <Keycap keyCap={rKey} />
+          <Keycap keyCap={yKey} />
+        </FirstNameWrapper>
+        {/* <Keycap keyCap={blankKey} blank={true} /> */}
+        <LastNameWrapper>
+          <Keycap keyCap={iKey} />
+          <Keycap keyCap={uKey} />
+        </LastNameWrapper>
       </KeycapWrapper>
 
       <SocialKeyWrapper>
@@ -153,13 +213,11 @@ const LandingPage = () => {
         </a>
       </SocialKeyWrapper>
 
-      <Link to='additional-page' spy={true} smooth={true} duration={500}>
-        <ArrowsWrapper>
-          <Arrow />
-          <Arrow />
-          <Arrow />
-        </ArrowsWrapper>
-      </Link>
+      <ArrowsWrapper>
+        <Arrow />
+        <Arrow />
+        <Arrow />
+      </ArrowsWrapper>
     </LandingPageWrapper>
   );
 };

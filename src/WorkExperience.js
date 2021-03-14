@@ -7,12 +7,16 @@ import phlyt from './assets/new-phlyt.png';
 
 const Wrapper = styled.div`
   width: 90%;
+  max-width: 1440px;
 `;
 
 const Headings = styled.div`
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
+  @media (max-width: 420px) {
+    font-size: 30px;
+  }
 `;
 
 const WorkCardsWrapper = styled.div`
@@ -23,6 +27,11 @@ const WorkCardsWrapper = styled.div`
 
 const WorkCard = styled.div`
   width: 40%;
+  max-width: 350px;
+  @media (max-width: 420px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 `;
 
 const WorkImage = styled.img`
