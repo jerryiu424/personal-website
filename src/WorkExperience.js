@@ -91,7 +91,7 @@ const WorkExperience = () => {
                 <DescriptionItem>
                   Developed an admin portal using{' '}
                   <b>JavaScript (React with Hooks)</b> and{' '}
-                  <b>Java with Spring</b> for a learning platformused by several
+                  <b>Java with Spring</b> for a learning platform used by several
                   customers from the mining industry.
                 </DescriptionItem>
               </li>

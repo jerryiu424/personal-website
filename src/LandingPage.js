@@ -182,7 +182,6 @@ const LandingPage = () => {
           <Keycap keyCap={rKey} />
           <Keycap keyCap={yKey} />
         </FirstNameWrapper>
-        {/* <Keycap keyCap={blankKey} blank={true} /> */}
         <LastNameWrapper>
           <Keycap keyCap={iKey} />
           <Keycap keyCap={uKey} />
