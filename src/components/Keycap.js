@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
-import keySwitch from './assets/key-switch.png';
+import keySwitch from 'assets/key-switch.png';
 
 const Root = styled.div`
   width: 100%;
@@ -12,12 +13,14 @@ const Root = styled.div`
   & > * {
     position: absolute;
   }
+  & > *:first-of-type {
+    z-index: 100;
+  }
 `;
 
 const KeyCap = styled.img`
   width: 125px;
   max-height: 111px;
-  z-index: 100;
   &:hover {
     margin-top: 10px;
   }
@@ -53,11 +56,41 @@ const KeySwitch = styled.img`
   }
 `;
 
-const Keycap = ({ keyCap, blank }) => {
+const Keycap = ({ keyCap, blank, delay = 0 }) => {
   return (
     <Root blank={blank}>
-      <KeyCap src={keyCap} />
-      <KeySwitch src={keySwitch} />
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: -100,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          delay: delay * 0.2,
+          type: 'spring',
+          stiffness: 750,
+          damping: 25,
+        }}>
+        <KeyCap src={keyCap} />
+      </motion.div>
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: -100,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          delay: delay * 0.1,
+          ease: 'easeOut',
+        }}>
+        <KeySwitch src={keySwitch} />
+      </motion.div>
     </Root>
   );
 };

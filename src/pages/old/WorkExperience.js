@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import dimensionData from './assets/dimension-data.jpeg';
 import rbc from './assets/rbc.jpg';

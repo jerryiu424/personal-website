@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import Tag from './Tag';
 
@@ -41,7 +41,7 @@ const ProjectItem = styled.div`
   & > * {
     margin: 0 10px;
   }
-  & > *:nth-child(1) {
+  & > *:nth-of-type(1) {
     margin-top: 10px;
   }
   & > a {

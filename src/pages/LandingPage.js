@@ -1,29 +1,26 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react'
 
-import background from './assets/background.png';
-import Keycap from './Keycap';
-import jKey from './assets/kecaps/J.png';
-import eKey from './assets/kecaps/E.png';
-import rKey from './assets/kecaps/R.png';
-import yKey from './assets/kecaps/Y.png';
-import iKey from './assets/kecaps/I.png';
-import uKey from './assets/kecaps/U.png';
-import emailKey from './assets/kecaps/email.png';
-import githubKey from './assets/kecaps/github.png';
-import linkedinKey from './assets/kecaps/linkedin.png';
-import resumeKey from './assets/kecaps/resume.png';
+import background from 'assets/background.png';
+import Keycap from 'components/Keycap';
+import jKey from 'assets/keycaps/J.png';
+import eKey from 'assets/keycaps/E.png';
+import rKey from 'assets/keycaps/R.png';
+import yKey from 'assets/keycaps/Y.png';
+import iKey from 'assets/keycaps/I.png';
+import uKey from 'assets/keycaps/U.png';
+import emailKey from 'assets/keycaps/email.png';
+import githubKey from 'assets/keycaps/github.png';
+import linkedinKey from 'assets/keycaps/linkedin.png';
+import resumeKey from 'assets/keycaps/resume.png';
 
 const LandingPageWrapper = styled.div`
-  // background-image: url(${(props) => props.backgroundImage});
   height: 100%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   @media (max-width: 1280px) {
     & > * {
       max-width: 700px;
@@ -136,11 +133,11 @@ const Arrow = styled.div`
   transform: scale(0.3);
   animation: ${arrowAnimation} 3s ease-out 2s infinite;
 
-  &:first-child {
+  &:first-of-type {
     animation: ${arrowAnimation} 3s ease-out infinite;
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     animation: ${arrowAnimation} 3s ease-out 1s infinite;
   }
 
@@ -171,52 +168,69 @@ const Arrow = styled.div`
   }
 `;
 
+const firstnameKeys = [jKey, eKey, rKey, rKey, yKey];
+const lastnameKeys = [iKey, uKey];
+const socialKeys = [
+  {
+    cap: emailKey,
+    link: 'mailto:jerryiu424@gmail.com',
+  },
+  {
+    cap: linkedinKey,
+    link: 'https://www.linkedin.com/in/jerryiu424',
+  },
+  {
+    cap: githubKey,
+    link: 'https://github.com/jerryiu424',
+  },
+  {
+    cap: resumeKey,
+    link: 'https://drive.google.com/file/d/1Tj5OhFvvliFhfmcmij3X_wXwmmKYvQux/view?usp=sharing',
+  },
+];
+
 const LandingPage = () => {
   return (
     <LandingPageWrapper backgroundImage={background}>
       <KeycapWrapper>
         <FirstNameWrapper>
-          <Keycap keyCap={jKey} />
-          <Keycap keyCap={eKey} />
-          <Keycap keyCap={rKey} />
-          <Keycap keyCap={rKey} />
-          <Keycap keyCap={yKey} />
+          {firstnameKeys.map((cap, index) => {
+            return <Keycap key={index} keyCap={cap} delay={index} />;
+          })}
         </FirstNameWrapper>
         <LastNameWrapper>
-          <Keycap keyCap={iKey} />
-          <Keycap keyCap={uKey} />
+          {lastnameKeys.map((cap, index) => {
+            return (
+              <Keycap
+                key={index}
+                keyCap={cap}
+                delay={index + firstnameKeys.length}
+              />
+            );
+          })}
         </LastNameWrapper>
       </KeycapWrapper>
 
       <SocialKeyWrapper>
-        <a href='mailto:jerryiu424@gmail.com'>
-          <Keycap keyCap={emailKey} />
-        </a>
-        <a
-          href='https://github.com/jerryiu424'
-          target='_BLANK'
-          rel='noreferrer'>
-          <Keycap keyCap={githubKey} />
-        </a>
-        <a
-          href='https://www.linkedin.com/in/jerryiu424'
-          target='_BLANK'
-          rel='noreferrer'>
-          <Keycap keyCap={linkedinKey} />
-        </a>
-        <a
-          href='https://drive.google.com/file/d/1Tj5OhFvvliFhfmcmij3X_wXwmmKYvQux/view?usp=sharing'
-          target='_BLANK'
-          rel='noreferrer'>
-          <Keycap keyCap={resumeKey} />
-        </a>
+        {socialKeys.map(({ cap, link }, index) => {
+          return (
+            <a key={index} href={link} target='_BLANK' rel='noreferrer'>
+              <Keycap
+                keyCap={cap}
+                delay={
+                  index + (firstnameKeys.length + lastnameKeys.length) * 0.7
+                }
+              />
+            </a>
+          );
+        })}
       </SocialKeyWrapper>
 
-      <ArrowsWrapper>
+      {/* <ArrowsWrapper>
         <Arrow />
         <Arrow />
         <Arrow />
-      </ArrowsWrapper>
+      </ArrowsWrapper> */}
     </LandingPageWrapper>
   );
 };
