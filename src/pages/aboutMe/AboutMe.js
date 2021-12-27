@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme, Box, Image, Text, Skeleton } from '@chakra-ui/react';
+import { useTheme, Box, Image, Text } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from '@emotion/styled';
 

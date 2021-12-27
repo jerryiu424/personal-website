@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Grid, GridItem, Image, Text } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 import { UserContext } from 'context/UserContext';

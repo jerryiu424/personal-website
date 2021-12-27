@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react'
+import { keyframes } from '@emotion/react';
 
 import background from 'assets/background.png';
 import Keycap from 'components/Keycap';
@@ -114,60 +114,6 @@ const arrowAnimation = keyframes`
   }
 `;
 
-const ArrowsWrapper = styled.div`
-  position: absolute;
-  bottom: 7%;
-  width: 100%;
-  height: 20%;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Arrow = styled.div`
-  width: calc(2.6rem * 3.5);
-  height: calc(1.6rem * 0.8);
-  opacity: 0;
-  transform: scale(0.3);
-  animation: ${arrowAnimation} 3s ease-out 2s infinite;
-
-  &:first-of-type {
-    animation: ${arrowAnimation} 3s ease-out infinite;
-  }
-
-  &:nth-of-type(2) {
-    animation: ${arrowAnimation} 3s ease-out 1s infinite;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    background: #ffffff;
-  }
-
-  &:before {
-    left: 0;
-    transform: skewY(30deg);
-  }
-
-  &:after {
-    right: 0;
-    width: 50%;
-    transform: skewY(-30deg);
-  }
-
-  @media (max-width: 420px) {
-    width: calc(1.9rem * 3.5);
-    height: calc(0.9rem * 0.8);
-  }
-`;
-
 const firstnameKeys = [jKey, eKey, rKey, rKey, yKey];
 const lastnameKeys = [iKey, uKey];
 const socialKeys = [
@@ -225,12 +171,6 @@ const LandingPage = () => {
           );
         })}
       </SocialKeyWrapper>
-
-      {/* <ArrowsWrapper>
-        <Arrow />
-        <Arrow />
-        <Arrow />
-      </ArrowsWrapper> */}
     </LandingPageWrapper>
   );
 };

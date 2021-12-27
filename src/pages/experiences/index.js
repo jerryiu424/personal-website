@@ -3,10 +3,11 @@ import { Grid, GridItem, Text } from '@chakra-ui/react';
 
 import BranchView from './BranchView';
 import GridView from './GridView';
-import Toggle from './Toggle';
+// WIP --> coming soon
+// import Toggle from './Toggle';
 
 const ExperiencesPage = () => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, _setToggle] = useState(true);
 
   return (
     <Grid templateRows='auto' templateColumns='repeat(12,1fr)' gap='50px'>
