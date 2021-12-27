@@ -96,24 +96,6 @@ const SocialKeyWrapper = styled.div`
   }
 `;
 
-const arrowAnimation = keyframes`
-  25% {
-    opacity: 0;
-    }
-  33.3% {
-    opacity: 0;
-    transform: translateY(1.6rem * 3.8);
-  }
-  66.6% {
-    opacity: 1;
-    transform: translateY(1.6rem * 5.2);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(1.6rem * 8) scale(0.5);
-  }
-`;
-
 const firstnameKeys = [jKey, eKey, rKey, rKey, yKey];
 const lastnameKeys = [iKey, uKey];
 const socialKeys = [
